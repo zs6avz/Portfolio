@@ -1,315 +1,298 @@
-# Personal Resume Website
+# Annamarie Nieuwoudt - Personal Portfolio Website
 
-A professional, responsive personal website designed to serve as an online resume and portfolio. This website showcases your skills, experience, education, projects, and provides a way for potential employers or clients to contact you.
+A minimalist retro-futuristic personal portfolio website showcasing professional experience, skills, projects, and creative work. Built with a cyberpunk-inspired design system featuring neon colors, geometric shapes, and animated effects.
 
-## ✨ Features
+## 🎨 Design System
 
-### 📄 Complete Resume Sections
-- **Hero Section**: Eye-catching introduction with your name, tagline, and call-to-action buttons
-- **About Me**: Detailed overview of your background, interests, and professional statistics
-- **Work Experience**: Timeline-based display of your career history with detailed descriptions
-- **Education**: Academic qualifications and professional certifications
-- **Skills & Technologies**: Organized showcase of your technical skills across different categories
-- **Featured Projects**: Portfolio section highlighting your best work with images and descriptions
-- **Contact Section**: Multiple ways to get in touch, including a functional contact form
+### Visual Style
+This website features a **minimalist retro-futuristic aesthetic** inspired by cyberpunk and sci-fi interfaces:
 
-### 🎨 Design Features
-- Modern gradient color scheme (purple/blue)
-- Clean, professional layout
-- Smooth animations and transitions
-- Interactive hover effects
-- Font Awesome icons throughout
+- **Color Palette**: Neon cyan (#00ffff), magenta (#ff00ff), and neon green (#00ff88) against dark backgrounds (#0a0a0f)
+- **Typography**: Orbitron (geometric headers) and Rajdhani (clean body text) from Google Fonts
+- **Visual Effects**: 
+  - Scanline overlay animation for CRT monitor effect
+  - Grid background patterns
+  - Polygon clip-path shapes on cards and buttons
+  - Neon glow effects on hover
+  - Glitch animations on active elements
+- **Components**: Geometric cards, timeline visualizations, hover-reactive project cards, neon-bordered sections
 
-### 📱 Responsive Design
-- Mobile-first approach
-- Fully responsive on all devices (phones, tablets, desktops)
-- Hamburger menu for mobile navigation
-- Optimized layouts for different screen sizes
-
-### ♿ Accessibility Features
-- Semantic HTML5 markup
-- ARIA labels and roles for screen readers
-- Proper heading hierarchy
-- Descriptive alt text for all images
-- Keyboard navigation support
-- Form labels for all inputs
-- Skip to main content functionality
-
-### ⚡ Performance
-- Lazy loading for images
-- Optimized CSS and JavaScript
-- Smooth scroll behavior
-- Minimal external dependencies
+### Design Features
+- Consistent neon glow effects across interactive elements
+- Animated scanlines creating a retro-tech atmosphere
+- Clipped polygon borders (15px cuts on corners) for geometric aesthetic
+- Pulsing dot animations on timeline items
+- Smooth hover transforms with scale and glow effects
 
 ## 🛠️ Technical Stack
 
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with Flexbox and Grid
-- **JavaScript**: Interactive features and animations
-- **Font Awesome**: Icon library
+- **HTML5**: Semantic markup with accessibility features
+- **CSS3**: Custom design system with animations, Grid, and Flexbox
+- **JavaScript**: Smooth scrolling, mobile menu, scroll animations
+- **Font Awesome 6.4.0**: Icon library
+- **Google Fonts**: Orbitron (400/500/700/900), Rajdhani (300/400/500/600/700)
 
-## 📂 File Structure
+## 📂 Project Structure
 
 ```
 Personal Website/
 │
-├── index.html          # Main HTML file
-├── style.css           # All CSS styles
-├── script.js           # JavaScript functionality
-└── README.md          # This file
+├── index.html                      # Main portfolio page
+├── style.css                       # Complete design system (~1024 lines)
+├── script.js                       # Interactive functionality
+├── README.md                       # This file
+│
+├── photography.html                # Photography portfolio gallery
+├── logo-design.html                # Logo design gallery
+├── marketing-materials.html        # Graphic design & marketing gallery (merged with social media)
+├── mockups.html                    # Product mockup showcase
+├── sustainable-projects.html       # Detailed volunteering project page with photo gallery
+├── social-media.html              # (Legacy - content merged into marketing-materials.html)
+│
+└── Images/                         # All image assets
+    ├── photography/                # Nature & wildlife photos
+    ├── logos/                      # Logo design work
+    ├── marketing/                  # Flyers, business cards, social media posts
+    ├── mockups/                    # Product mockup renders
+    ├── Dalmada Water.png          # NGO project showcase image
+    └── [various project images]
 ```
 
-## 🚀 Getting Started
+## 🌟 Key Sections
 
-### View the Website
+### Hero Section
+- Animated name with neon glow effect
+- Highlighted text with glowing cyan accent
+- Two CTA buttons: Portfolio and Contact (with geometric styling)
 
-1. **Local Viewing**: Simply open `index.html` in your web browser
-2. **Live Server** (Recommended for development):
-   - If using VS Code, install the "Live Server" extension
-   - Right-click on `index.html` and select "Open with Live Server"
+### About Section
+- Professional summary aligned with CV
+- Statistics cards with icons (experience, projects, skills)
+- Retro-futuristic card design with clipped corners
 
-### Customize Your Website
+### Resume Section
+Comprehensive professional background divided into:
 
-#### 1. Personal Information
-Update the following in `index.html`:
+1. **Education**
+   - BS Computer Information Systems (Grand Canyon University, 2025)
+   - AS Graphic Communications (Aims Community College, 2018)
+   - Azure Cloud Fundamentals (in progress)
+   - AI Prompt Engineering coursework
 
-- **Name**: Replace "Your Name" with your actual name (appears in multiple places)
-- **Tagline**: Update "Web Developer | Designer | Problem Solver" to match your role
-- **Hero Description**: Modify the introduction text in the hero section
+2. **Experience**
+   - Timeline layout with glowing dots
+   - Multiple positions from 2012-present
+   - Detailed responsibilities and achievements
 
-#### 2. About Section
-- Update the about text paragraphs with your story
-- Modify statistics (years of experience, projects completed, happy clients)
+3. **Volunteering**
+   - Web Development for Dalmada Water Cooperation NGO (2023)
+     - Link button to live website (https://dalmadawater.co.za/)
+   - Sustainable Farming & Development Projects (2015-2018)
+     - Dedicated detail page with photo gallery
 
-#### 3. Work Experience
-For each job in the timeline:
-- Update dates (use proper datetime format)
-- Change job title and company name
-- Modify description and achievements
-- Add or remove jobs as needed
+4. **Core Skills**
+   - 7 categories: Graphic Design, Web Dev, Office Productivity, Digital Marketing, Cloud Computing, AI & Emerging Tech, Languages
+   - Skill tags with neon styling
 
-#### 4. Education
-- Update degree information
-- Change university name and graduation dates
-- Add your actual certifications
+### Projects Section
+Featured work with background images and hover effects:
+- Personal Portfolio Website (this site)
+- NGO Website for Dalmada Water Cooperation (with background image styling)
+- Azure Cloud Learning Journey
 
-#### 5. Skills
-- Add or remove skills based on your expertise
-- Organize into relevant categories
-- Customize category names if needed
+### Portfolio Preview
+Links to 4 gallery categories:
+- Photography (nature & wildlife)
+- Logo Design
+- Graphic Design & Marketing (merged marketing materials and social media)
+- Product Mockups
 
-#### 6. Projects
-For each project:
-- Replace placeholder images with actual screenshots
-- Update project titles and descriptions
-- Change technology tags
-- Add links to live demos and GitHub repositories
-- Add or remove projects as needed
+### Contact Section
+- Contact form with validation
+- Email, phone, location information
+- Social media links (LinkedIn, GitHub, Instagram)
 
-**To replace project images:**
-```html
-<img src="path/to/your/image.jpg" alt="Detailed description of project">
-```
+## 🎯 Design System Details
 
-#### 7. Contact Information
-Update in `index.html`:
-- Email address
-- Phone number
-- Location (city, country)
-- Social media links:
-  - GitHub: `https://github.com/yourusername`
-  - LinkedIn: `https://linkedin.com/in/yourusername`
-
-#### 8. Colors and Styling
-Modify CSS variables in `style.css`:
-
+### CSS Variables
 ```css
 :root {
-    --primary-color: #667eea;      /* Main brand color */
-    --secondary-color: #764ba2;    /* Secondary brand color */
-    --text-color: #333;            /* Main text color */
-    --text-light: #666;            /* Lighter text */
-    --bg-color: #f8f9fa;          /* Background color */
+    --primary-color: #00ffff;      /* Neon cyan */
+    --secondary-color: #ff00ff;    /* Neon magenta */
+    --accent-color: #00ff88;       /* Neon green */
+    --bg-dark: #0a0a0f;           /* Dark background */
+    --card-bg: #12121a;           /* Card background */
+    --text-color: #e0e0e0;        /* Light text */
+    --text-light: #a0a0a0;        /* Muted text */
 }
 ```
 
-## 📋 Technical Requirements Met
+### Key Animations
+- `@keyframes scanline`: Vertical moving line effect
+- `@keyframes pulse`: Glowing pulse effect
+- `@keyframes glitch`: Text distortion effect
+- `@keyframes timeline-glow`: Pulsing timeline dots
+- `@keyframes dot-pulse`: Resume timeline indicators
 
-### ✅ HTML Standards
-- Valid HTML5 markup
-- Proper semantic elements (`header`, `main`, `section`, `article`, `nav`, `footer`)
-- Appropriate use of heading hierarchy (h1-h4)
-- Semantic time elements for dates
-- Proper form structure with labels
+### Component Patterns
+- **Cards**: `clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)`
+- **Buttons**: Neon borders with hover glow and scale transforms
+- **Timeline**: Vertical line with pulsing dots and connecting lines
+- **Gallery Grid**: Responsive grid with hover overlay effects
 
-### ✅ CSS Best Practices
-- Valid CSS3
-- Organized structure with clear sections
-- CSS custom properties (variables) for theming
-- BEM-like naming conventions
-- Mobile-first responsive design
-- CSS Grid and Flexbox for layouts
+## 📱 Responsive Design
 
-### ✅ Accessibility
-- All images have descriptive alt text
-- ARIA labels and roles where appropriate
-- Proper form labels (visually hidden but accessible)
-- Semantic HTML for better screen reader support
-- Sufficient color contrast
+### Breakpoints
+- Mobile: < 768px
+- Tablet: 768px - 1024px
+- Desktop: > 1024px
+
+### Mobile Optimizations
+- Hamburger menu navigation
+- Stacked grid layouts
+- Touch-friendly button sizes
+- Optimized font scaling
+- Single-column project cards
+
+## 🔧 Development Guidelines
+
+### Adding New Portfolio Items
+
+1. **Gallery Pages**: Follow existing pattern in `photography.html`, `logo-design.html`, etc.
+   ```html
+   <div class="gallery-item">
+       <img src="./Images/your-image.jpg" alt="Description">
+       <div class="gallery-caption">
+           <h3>Title</h3>
+           <p>Description</p>
+       </div>
+   </div>
+   ```
+
+2. **Project Cards**: Use existing structure in index.html projects section
+   ```html
+   <article class="project-card">
+       <div class="project-image">
+           <img src="Images/project.jpg" alt="Project name">
+           <div class="project-overlay">
+               <a href="link" class="project-link">
+                   <i class="fas fa-link"></i>
+               </a>
+           </div>
+       </div>
+       <div class="project-info">
+           <h3>Project Title</h3>
+           <p>Description</p>
+           <div class="project-tags">
+               <span>Tech 1</span>
+               <span>Tech 2</span>
+           </div>
+       </div>
+   </article>
+   ```
+
+### Adding Background Images to Cards
+Use inline styles for one-off customizations:
+```html
+<div class="project-image" style="background-image: url('Images/bg.jpg'); background-size: cover; background-position: center;">
+```
+
+### Maintaining Design Consistency
+- Use CSS variables for colors
+- Apply `clip-path` polygon for geometric shapes
+- Include hover effects with `transform: scale()` and box-shadow glow
+- Use Orbitron for headers, Rajdhani for body text
+- Add appropriate Font Awesome icons
+
+## ♿ Accessibility Features
+
+- Semantic HTML5 elements (`<header>`, `<main>`, `<section>`, `<article>`, `<nav>`, `<footer>`)
+- ARIA labels on interactive elements
+- Proper heading hierarchy (h1 → h2 → h3)
+- Alt text on all images
+- Form labels with accessible structure
 - Keyboard navigation support
+- Sufficient color contrast (neon colors on dark backgrounds)
+- `aria-hidden="true"` on decorative icons
 
-### ✅ Responsive Design
-- Breakpoints for mobile, tablet, and desktop
-- Flexible grid layouts
-- Responsive images
-- Mobile navigation menu
-- Touch-friendly interactive elements
+## 🚀 Deployment
 
-## 🎯 Features Implementation
+The site is static HTML/CSS/JS and can be deployed to:
+- **GitHub Pages**: Push to repo, enable in Settings > Pages
+- **Netlify**: Drag and drop folder or connect Git repo
+- **Vercel**: Import from Git or upload directly
+- **Traditional hosting**: FTP upload to web server
 
-### Smooth Scrolling
-The website includes smooth scrolling navigation. Clicking any navigation link smoothly scrolls to the corresponding section.
+## 🔄 Recent Updates
 
-### Mobile Menu
-On mobile devices, the navigation collapses into a hamburger menu that slides in from the top when activated.
+- Merged marketing materials and social media galleries into single page
+- Created separate mockups gallery page with 6 items
+- Added dedicated sustainable-projects.html detail page with photo gallery
+- Moved AI Prompt Engineering from Projects to Education & Skills sections
+- Added background image to NGO Website project card
+- Added external link button to Dalmada Water Cooperation website
+- Expanded mockups gallery with placeholder images (ready for actual mockup files)
 
-### Scroll Animations
-Elements fade in and slide up as you scroll down the page, creating an engaging user experience.
+## 📝 Content Alignment
 
-### Counter Animation
-Statistics in the About section animate from 0 to their final values when they come into view.
+Website content is aligned with professional CV:
+- Hero description matches professional summary
+- Experience section structured per CV timeline
+- Skills reorganized into 7 clear categories
+- Education includes all degrees and certifications
+- Volunteering section includes all community work
 
-### Contact Form
-The contact form includes:
-- Client-side validation
-- Placeholder demo functionality
-- Proper labels for accessibility
-- Required field indicators
+## 🎨 Customization Notes
 
-**Note**: The form currently shows a demo alert. To make it functional, you'll need to:
-1. Set up a backend service (Node.js, PHP, etc.)
-2. Or use a form service like Formspree, Netlify Forms, or EmailJS
-3. Update the form submission handler in `script.js`
+### Replacing Placeholder Images
+Several placeholder images are currently used:
+- Mockups gallery: 5 items use placeholder.com URLs (t-shirt, hoodie, mug, tote bag, poster)
+- Sustainable projects gallery: 6 items use via.placeholder.com URLs
 
-## 🌐 Deployment Options
-
-### Option 1: GitHub Pages (Free)
-1. Create a GitHub repository
-2. Push your files to the repository
-3. Go to Settings > Pages
-4. Select main branch as source
-5. Your site will be live at `https://yourusername.github.io/repository-name`
-
-### Option 2: Netlify (Free)
-1. Create a Netlify account
-2. Drag and drop your folder to Netlify
-3. Your site will be live instantly with a custom URL
-
-### Option 3: Vercel (Free)
-1. Create a Vercel account
-2. Import your GitHub repository or upload files
-3. Deploy with one click
-
-### Option 4: Traditional Web Hosting
-Upload all files to your web host via FTP using FileZilla or similar tools.
-
-## 🔧 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## 📝 Customization Tips
-
-### Adding New Sections
-1. Add the section in `index.html` following the existing structure
-2. Add corresponding styles in `style.css`
-3. Add navigation link in the navbar
-4. Ensure proper semantic HTML and ARIA labels
-
-### Changing Fonts
-Add a Google Font to the `<head>` section:
+Replace with actual images:
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Your+Font&display=swap" rel="stylesheet">
+<!-- Change from: -->
+<img src="https://via.placeholder.com/800x600" alt="...">
+<!-- To: -->
+<img src="./Images/your-photo.jpg" alt="Descriptive text">
 ```
 
-Then update in `style.css`:
+### Color Theme Modification
+To change the color scheme, update CSS variables in `style.css`:
 ```css
-body {
-    font-family: 'Your Font', sans-serif;
+:root {
+    --primary-color: #your-color;    /* Main accent */
+    --secondary-color: #your-color;  /* Secondary accent */
+    --accent-color: #your-color;     /* Third accent */
 }
 ```
 
-### Adding More Projects
-Copy an existing project card and modify:
-```html
-<article class="project-card">
-    <!-- Project content -->
-</article>
-```
+All components will automatically inherit the new colors.
 
-## 🐛 Troubleshooting
+## 🌐 Live Features
 
-### Images Not Loading
-- Check file paths are correct
-- Ensure images are in the same directory or use correct relative paths
-- Verify image file extensions match exactly
+- **Smooth scrolling** navigation
+- **Mobile hamburger menu** with slide animation
+- **Scroll-triggered animations** for content reveal
+- **Hover effects** on all interactive elements
+- **External links** open in new tabs with proper security attributes
+- **Contact form** with validation (requires backend integration)
 
-### Styles Not Applying
-- Ensure `style.css` is in the same directory as `index.html`
-- Check browser console for errors
-- Clear browser cache
+## 🐛 Known TODOs
 
-### JavaScript Not Working
-- Ensure `script.js` is in the same directory as `index.html`
-- Check browser console for errors
-- Verify Font Awesome CDN is loading
+- [ ] Replace mockup placeholder images with actual mockup files
+- [ ] Replace sustainable farming gallery placeholders with real project photos
+- [ ] Integrate contact form with backend service (Formspree, EmailJS, or custom)
+- [ ] Add meta tags for SEO optimization
+- [ ] Consider adding Open Graph tags for social media sharing
 
-## 📬 Contact Form Integration
+## 📞 External Links
 
-To make the contact form functional, here are some options:
-
-### Formspree (Easiest)
-```html
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-```
-
-### EmailJS
-1. Sign up at emailjs.com
-2. Follow their integration guide
-3. Update the form handler in `script.js`
-
-### Custom Backend
-Create a server endpoint and update the form action or add AJAX submission.
-
-## 📄 License
-
-This is a personal project template. Feel free to use and modify it for your own personal website.
-
-## 🤝 Contributing
-
-This is a personal website template. Feel free to fork and customize for your own use!
-
-## 💡 Tips for Success
-
-1. **Keep it updated**: Regularly update your experience, skills, and projects
-2. **Use real images**: Replace placeholder images with actual project screenshots
-3. **Be authentic**: Write in your own voice in the about section
-4. **Proofread**: Check for spelling and grammar errors
-5. **Test thoroughly**: View your site on different devices and browsers
-6. **SEO**: Update meta tags with your actual information
-7. **Performance**: Optimize images before uploading (compress to reduce file size)
-
-## 📞 Support
-
-If you encounter any issues or have questions about customizing the website:
-- Check browser console for errors
-- Validate HTML at validator.w3.org
-- Validate CSS at jigsaw.w3.org/css-validator
-- Test accessibility with browser DevTools
+- **Dalmada Water NGO**: https://dalmadawater.co.za/
+- **GitHub**: Update with actual GitHub profile URL
+- **LinkedIn**: Update with actual LinkedIn profile URL
+- **Instagram**: Update with actual Instagram handle
 
 ---
 
-**Good luck with your personal website! 🚀**
+**Built with passion for retro-futuristic design and modern web standards** 🚀✨
