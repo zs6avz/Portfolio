@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon & Thumbnail Generator</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./Images/featherfavicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./Images/featherfavicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./Images/featherfavicon-180x180.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zs6avz.github.io/Portfolio/create-favicon.html">
+    <meta property="og:title" content="Favicon & Thumbnail Generator">
+    <meta property="og:description" content="Create custom favicons and social media thumbnails for your website with a retro-futuristic design.">
+    <meta property="og:image" content="https://zs6avz.github.io/Portfolio/Images/featherthumbnail.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://zs6avz.github.io/Portfolio/create-favicon.html">
+    <meta property="twitter:title" content="Favicon & Thumbnail Generator">
+    <meta property="twitter:description" content="Create custom favicons and social media thumbnails for your website with a retro-futuristic design.">
+    <meta property="twitter:image" content="https://zs6avz.github.io/Portfolio/Images/featherthumbnail.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Audiowide&family=Russo+One&family=Electrolize&family=Michroma&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #12121a;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+            border: 2px solid #00ffff;
+        }
+        
+        h1 {
+            color: #00ffff;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .description {
+            text-align: center;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .canvas-container {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .canvas-box {
+            background: #1a1a2e;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #00ffff;
+        }
+        
+        .canvas-box h3 {
+            color: #00ff88;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        canvas {
+            border: 2px solid #00ffff;
+            background: #0a0a0f;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .controls {
+            background: #1a1a2e;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 1px solid #00ffff;
+        }
+        
+        .control-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .control-group label {
+            display: block;
+            color: #00ffff;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        input[type="text"],
+        input[type="color"],
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            background: #0a0a0f;
+            border: 2px solid #00ffff;
+            color: #e0e0e0;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        input[type="color"] {
+            height: 50px;
+            cursor: pointer;
+        }
+        
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        button {
+            padding: 1rem 1.5rem;
+            background: transparent;
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: #00ffff;
+            color: #0a0a0f;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .instructions {
+            background: #1a1a2e;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #ff00ff;
+            margin-top: 2rem;
+        }
+        
+        .instructions h2 {
+            color: #ff00ff;
+            margin-bottom: 1rem;
+        }
+        
+        .instructions ol {
+            margin-left: 1.5rem;
+            line-height: 2;
+            color: #a0a0a0;
+        }
+        
+        .instructions code {
+            background: #0a0a0f;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Favicon & Thumbnail Generator</h1>
+        <p class="description">
+            Create custom favicons and social media thumbnails for your website with a retro-futuristic design.
+        </p>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="iconType">Icon Type</label>
+                <select id="iconType" onchange="toggleIconType()">
+                    <option value="text">Text/Initials</option>
+                    <option value="emoji">Emoji</option>
+                    <option value="image">Custom Image</option>
+                </select>
+            </div>
+            
+            <div class="control-group" id="textGroup">
+                <label for="text">Text (1-2 characters work best)</label>
+                <input type="text" id="text" value="" maxlength="3" placeholder="Enter text" oninput="updatePreviews()">
+            </div>
+            
+            <div class="control-group" id="emojiGroup" style="display: none;">
+                <label for="emoji">Emoji (click to select or paste one)</label>
+                <input type="text" id="emoji" value="" maxlength="2" placeholder="Select or paste emoji" oninput="updatePreviews()">
+                <div style="margin-top: 0.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button type="button" onclick="setEmoji('🔥')" style="padding: 0.5rem;">🔥</button>
+                    <button type="button" onclick="setEmoji('🎨')" style="padding: 0.5rem;">🎨</button>
+                    <button type="button" onclick="setEmoji('💻')" style="padding: 0.5rem;">💻</button>
+                    <button type="button" onclick="setEmoji('🚀')" style="padding: 0.5rem;">🚀</button>
+                    <button type="button" onclick="setEmoji('✨')" style="padding: 0.5rem;">✨</button>
+                    <button type="button" onclick="setEmoji('🌟')" style="padding: 0.5rem;">🌟</button>
+                    <button type="button" onclick="setEmoji('💡')" style="padding: 0.5rem;">💡</button>
+                    <button type="button" onclick="setEmoji('🎯')" style="padding: 0.5rem;">🎯</button>
+                    <button type="button" onclick="setEmoji('📸')" style="padding: 0.5rem;">📸</button>
+                    <button type="button" onclick="setEmoji('🎭')" style="padding: 0.5rem;">🎭</button>
+                    <button type="button" onclick="setEmoji('🌈')" style="padding: 0.5rem;">🌈</button>
+                    <button type="button" onclick="setEmoji('⚡')" style="padding: 0.5rem;">⚡</button>
+                    <button type="button" onclick="setEmoji('💎')" style="padding: 0.5rem;">💎</button>
+                    <button type="button" onclick="setEmoji('🎪')" style="padding: 0.5rem;">🎪</button>
+                    <button type="button" onclick="setEmoji('🎬')" style="padding: 0.5rem;">🎬</button>
+                    <button type="button" onclick="setEmoji('🎵')" style="padding: 0.5rem;">🎵</button>
+                    <button type="button" onclick="setEmoji('🎮')" style="padding: 0.5rem;">🎮</button>
+                    <button type="button" onclick="setEmoji('🌺')" style="padding: 0.5rem;">🌺</button>
+                    <button type="button" onclick="setEmoji('🦋')" style="padding: 0.5rem;">🦋</button>
+                    <button type="button" onclick="setEmoji('🐝')" style="padding: 0.5rem;">🐝</button>
+                    <button type="button" onclick="setEmoji('🌙')" style="padding: 0.5rem;">🌙</button>
+                    <button type="button" onclick="setEmoji('☀️')" style="padding: 0.5rem;">☀️</button>
+                    <button type="button" onclick="setEmoji('🌸')" style="padding: 0.5rem;">🌸</button>
+                    <button type="button" onclick="setEmoji('💫')" style="padding: 0.5rem;">💫</button>
+                    <button type="button" onclick="setEmoji('🎁')" style="padding: 0.5rem;">🎁</button>
+                    <button type="button" onclick="setEmoji('💀')" style="padding: 0.5rem;">💀</button>
+                    <button type="button" onclick="setEmoji('⚜️')" style="padding: 0.5rem;">⚜️</button>
+                    <button type="button" onclick="setEmoji('⏳')" style="padding: 0.5rem;">⏳</button>
+                    <button type="button" onclick="setEmoji('🛸')" style="padding: 0.5rem;">🛸</button>
+                    <button type="button" onclick="setEmoji('🌐')" style="padding: 0.5rem;">🌐</button>
+                    <button type="button" onclick="setEmoji('🧩')" style="padding: 0.5rem;">🧩</button>
+                    <button type="button" onclick="setEmoji('♟️')" style="padding: 0.5rem;">♟️</button>
+                    <button type="button" onclick="setEmoji('🔒')" style="padding: 0.5rem;">🔒</button>
+                    <button type="button" onclick="setEmoji('🦄')" style="padding: 0.5rem;">🦄</button>
+                    <button type="button" onclick="setEmoji('🍄')" style="padding: 0.5rem;">🍄</button>
+                    <button type="button" onclick="setEmoji('🌱')" style="padding: 0.5rem;">🌱</button>
+                    <button type="button" onclick="setEmoji('🪶')" style="padding: 0.5rem;">🪶</button>
+                    <button type="button" onclick="setEmoji('👻')" style="padding: 0.5rem;">👻</button>
+                    <button type="button" onclick="setEmoji('👾')" style="padding: 0.5rem;">👾</button>
+                    <button type="button" onclick="setEmoji('💧')" style="padding: 0.5rem;">💧</button>
+                </div>
+            </div>
+            
+            <div class="control-group" id="imageGroup" style="display: none;">
+                <label for="iconImage">Upload Icon Image (PNG, SVG, JPG)</label>
+                <input type="file" id="iconImage" accept="image/*" onchange="loadImage()" style="padding: 0.5rem; cursor: pointer;">
+            </div>
+            
+            <div class="control-group">
+                <label for="bgColor">Background Color</label>
+                <input type="color" id="bgColor" value="#0a0a0f" onchange="updatePreviews()">
+            </div>
+            
+            <div class="control-group" id="textColorGroup">
+                <label for="textColor">Text Color</label>
+                <input type="color" id="textColor" value="#00ffff" onchange="updatePreviews()">
+            </div>
+            
+            <div class="control-group" id="fontFamilyGroup">
+                <label for="fontFamily">Font Style</label>
+                <select id="fontFamily" onchange="updatePreviews()">
+                    <option value="Orbitron">Orbitron</option>
+                    <option value="Audiowide">Audiowide</option>
+                    <option value="Russo One">Russo One</option>
+                    <option value="Electrolize">Electrolize</option>
+                    <option value="Michroma">Michroma</option>
+                    <option value="Share Tech Mono">Share Tech Mono</option>
+                    <option value="Arial">Arial (Default)</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="borderColor">Border Color</label>
+                <input type="color" id="borderColor" value="#ff00ff" onchange="updatePreviews()">
+            </div>
+            
+            <div class="control-group">
+                <label for="borderShape">Border Shape</label>
+                <select id="borderShape" onchange="updatePreviews()">
+                    <option value="polygon">Polygon (Geometric Cuts)</option>
+                    <option value="rounded">Rounded Corners</option>
+                    <option value="circle">Circle</option>
+                    <option value="square">Square</option>
+                    <option value="hexagon">Hexagon</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="thumbnailName">Thumbnail Title</label>
+                <input type="text" id="thumbnailName" value="" placeholder="Enter title" oninput="updatePreviews()">
+            </div>
+            
+            <div class="control-group">
+                <label for="thumbnailTitleColor">Thumbnail Title Color</label>
+                <input type="color" id="thumbnailTitleColor" value="#00ffff" onchange="updatePreviews()">
+            </div>
+            
+            <div class="control-group">
+                <label for="thumbnailSubtitle">Thumbnail Subtitle (Optional)</label>
+                <input type="text" id="thumbnailSubtitle" value="" placeholder="Enter tagline or subtitle" oninput="updatePreviews()">
+            </div>
+            
+            <div class="control-group">
+                <label for="thumbnailSubtitleColor">Thumbnail Subtitle Color</label>
+                <input type="color" id="thumbnailSubtitleColor" value="#a0a0a0" onchange="updatePreviews()">
+            </div>
+        </div>
+        
+        <div class="canvas-container">
+            <div class="canvas-box">
+                <h3>16x16 Favicon</h3>
+                <canvas id="favicon16" width="16" height="16"></canvas>
+            </div>
+            
+            <div class="canvas-box">
+                <h3>32x32 Favicon</h3>
+                <canvas id="favicon32" width="32" height="32"></canvas>
+            </div>
+            
+            <div class="canvas-box">
+                <h3>180x180 Apple Touch Icon</h3>
+                <canvas id="appleTouchIcon" width="180" height="180"></canvas>
+            </div>
+            
+            <div class="canvas-box">
+                <h3>1200x630 Thumbnail</h3>
+                <canvas id="thumbnail" width="1200" height="630" style="max-width: 100%;"></canvas>
+            </div>
+        </div>
+        
+        <div class="button-group">
+            <button onclick="downloadAll()" style="grid-column: 1 / -1; background: #00ffff; color: #0a0a0f; font-size: 1.1rem;">Download All Files</button>
+            <button onclick="downloadImage('favicon16', 'favicon-16x16.png')">Download 16x16</button>
+            <button onclick="downloadImage('favicon32', 'favicon-32x32.png')">Download 32x32</button>
+            <button onclick="downloadImage('appleTouchIcon', 'apple-touch-icon.png')">Download Apple Touch</button>
+            <button onclick="downloadImage('thumbnail', 'thumbnail.png')">Download Thumbnail</button>
+        </div>
+        
+        <div class="instructions">
+            <h2>📋 Instructions</h2>
+            <ol>
+                <li><strong>Choose your icon type:</strong> Select text/initials, emoji, or upload a custom image</li>
+                <li><strong>Customize appearance:</strong> Adjust background color, text/border colors, and border shape</li>
+                <li><strong>Add thumbnail text:</strong> Optionally add a title and subtitle for the social media thumbnail</li>
+                <li><strong>Download:</strong> Click "Download All Files" to get all four images at once, or download individually</li>
+                <li><strong>Install on website:</strong> Place the downloaded files in your website's root directory (same folder as <code>index.html</code>)</li>
+                <li><strong>Update meta tags:</strong> In <code>index.html</code>, replace <code>https://yourdomain.com/</code> with your actual domain in the <code>og:url</code>, <code>twitter:url</code>, <code>og:image</code>, and <code>twitter:image</code> meta tags</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        let uploadedImage = null;
+        
+        // Load fonts for canvas rendering
+        document.fonts.ready.then(function() {
+            // Fonts are loaded, draw initial previews
+            drawAll();
+        });
+        
+        // Helper function to get font with fallback
+        function getFontString(size, weight, family) {
+            const fallback = ', Arial, sans-serif';
+            const fontName = family === 'Arial' ? 'Arial' : `"${family}"${fallback}`;
+            return weight ? `${weight} ${size}px ${fontName}` : `${size}px ${fontName}`;
+        }
+        
+        function toggleIconType() {
+            const iconType = document.getElementById('iconType').value;
+            const textGroup = document.getElementById('textGroup');
+            const emojiGroup = document.getElementById('emojiGroup');
+            const imageGroup = document.getElementById('imageGroup');
+            const textColorGroup = document.getElementById('textColorGroup');
+            
+            if (iconType === 'emoji') {
+                textGroup.style.display = 'none';
+                emojiGroup.style.display = 'block';
+                imageGroup.style.display = 'none';
+                textColorGroup.style.display = 'none';
+            } else if (iconType === 'image') {
+                textGroup.style.display = 'none';
+                emojiGroup.style.display = 'none';
+                imageGroup.style.display = 'block';
+                textColorGroup.style.display = 'none';
+                // Automatically trigger file picker
+                setTimeout(() => {
+                    document.getElementById('iconImage').click();
+                }, 100);
+            } else {
+                textGroup.style.display = 'block';
+                emojiGroup.style.display = 'none';
+                imageGroup.style.display = 'none';
+                textColorGroup.style.display = 'block';
+            }
+            
+            drawAll();
+        }
+        
+        function loadImage() {
+            const file = document.getElementById('iconImage').files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        uploadedImage = img;
+                        drawAll();
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        function setEmoji(emoji) {
+            document.getElementById('emoji').value = emoji;
+            drawAll();
+        }
+        
+        function drawFavicon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            const iconType = document.getElementById('iconType').value;
+            const textValue = document.getElementById('text').value;
+            const emojiValue = document.getElementById('emoji').value;
+            const bgColor = document.getElementById('bgColor').value;
+            const textColor = document.getElementById('textColor').value;
+            const borderColor = document.getElementById('borderColor').value;
+            const borderShape = document.getElementById('borderShape').value;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            // Background
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Border with different shapes
+            const borderWidth = Math.max(2, size / 16);
+            ctx.strokeStyle = borderColor;
+            ctx.lineWidth = borderWidth;
+            
+            ctx.beginPath();
+            
+            if (borderShape === 'circle') {
+                ctx.arc(size / 2, size / 2, size / 2 - borderWidth, 0, Math.PI * 2);
+            } else if (borderShape === 'rounded') {
+                const radius = size / 6;
+                ctx.moveTo(radius, 0);
+                ctx.lineTo(size - radius, 0);
+                ctx.quadraticCurveTo(size, 0, size, radius);
+                ctx.lineTo(size, size - radius);
+                ctx.quadraticCurveTo(size, size, size - radius, size);
+                ctx.lineTo(radius, size);
+                ctx.quadraticCurveTo(0, size, 0, size - radius);
+                ctx.lineTo(0, radius);
+                ctx.quadraticCurveTo(0, 0, radius, 0);
+            } else if (borderShape === 'square') {
+                ctx.rect(borderWidth, borderWidth, size - borderWidth * 2, size - borderWidth * 2);
+            } else if (borderShape === 'hexagon') {
+                const cx = size / 2;
+                const cy = size / 2;
+                const r = size / 2 - borderWidth * 2;
+                for (let i = 0; i < 6; i++) {
+                    const angle = (Math.PI / 3) * i - Math.PI / 6;
+                    const x = cx + r * Math.cos(angle);
+                    const y = cy + r * Math.sin(angle);
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.closePath();
+            } else { // polygon (default geometric cuts)
+                const cutSize = size / 8;
+                ctx.moveTo(cutSize, 0);
+                ctx.lineTo(size - cutSize, 0);
+                ctx.lineTo(size, cutSize);
+                ctx.lineTo(size, size - cutSize);
+                ctx.lineTo(size - cutSize, size);
+                ctx.lineTo(cutSize, size);
+                ctx.lineTo(0, size - cutSize);
+                ctx.lineTo(0, cutSize);
+                ctx.closePath();
+            }
+            
+            ctx.stroke();
+            
+            // Icon content
+            if (iconType === 'image') {
+                if (uploadedImage) {
+                    // Draw uploaded image centered and scaled to fit
+                    const imgSize = size * 0.75;
+                    const imgX = (size - imgSize) / 2;
+                    const imgY = (size - imgSize) / 2;
+                    
+                    // Calculate aspect ratio to fit image properly
+                    const aspectRatio = uploadedImage.width / uploadedImage.height;
+                    let drawWidth = imgSize;
+                    let drawHeight = imgSize;
+                    
+                    if (aspectRatio > 1) {
+                        drawHeight = imgSize / aspectRatio;
+                    } else {
+                        drawWidth = imgSize * aspectRatio;
+                    }
+                    
+                    const drawX = (size - drawWidth) / 2;
+                    const drawY = (size - drawHeight) / 2;
+                    ctx.drawImage(uploadedImage, drawX, drawY, drawWidth, drawHeight);
+                } else {
+                    // Show placeholder text
+                    const fontFamily = document.getElementById('fontFamily').value;
+                    ctx.fillStyle = '#666';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.font = getFontString(size * 0.15, null, fontFamily);
+                    ctx.fillText('Upload', size / 2, size / 2 - size * 0.08);
+                    ctx.fillText('Image', size / 2, size / 2 + size * 0.08);
+                }
+            } else if (iconType === 'emoji') {
+                if (emojiValue) {
+                    // For emoji, use a slightly larger size
+                    ctx.fillStyle = '#ffffff';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.font = `${size * 0.6}px Arial`;
+                    ctx.fillText(emojiValue, size / 2, size / 2);
+                } else {
+                    // Show placeholder
+                    const fontFamily = document.getElementById('fontFamily').value;
+                    ctx.fillStyle = '#666';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.font = getFontString(size * 0.15, null, fontFamily);
+                    ctx.fillText('Select', size / 2, size / 2 - size * 0.08);
+                    ctx.fillText('Emoji', size / 2, size / 2 + size * 0.08);
+                }
+            } else {
+                if (textValue) {
+                    // Text/initials
+                    const fontFamily = document.getElementById('fontFamily').value;
+                    ctx.fillStyle = textColor;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.font = getFontString(size * 0.5, 'bold', fontFamily);
+                    ctx.fillText(textValue, size / 2, size / 2);
+                } else {
+                    // Show placeholder
+                    const fontFamily = document.getElementById('fontFamily').value;
+                    ctx.fillStyle = '#666';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.font = getFontString(size * 0.15, null, fontFamily);
+                    ctx.fillText('Enter', size / 2, size / 2 - size * 0.08);
+                    ctx.fillText('Text', size / 2, size / 2 + size * 0.08);
+                }
+            }
+        }
+        
+        function drawThumbnail() {
+            const canvas = document.getElementById('thumbnail');
+            const ctx = canvas.getContext('2d');
+            const iconType = document.getElementById('iconType').value;
+            const textValue = document.getElementById('text').value;
+            const emojiValue = document.getElementById('emoji').value;
+            const bgColor = document.getElementById('bgColor').value;
+            const textColor = document.getElementById('textColor').value;
+            const borderColor = document.getElementById('borderColor').value;
+            const borderShape = document.getElementById('borderShape').value;
+            
+            const width = 1200;
+            const height = 630;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, width, height);
+            gradient.addColorStop(0, bgColor);
+            gradient.addColorStop(1, '#1a1a2e');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+            
+            // Grid pattern
+            ctx.strokeStyle = 'rgba(0, 255, 255, 0.1)';
+            ctx.lineWidth = 1;
+            const gridSize = 40;
+            for (let x = 0; x < width; x += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+            for (let y = 0; y < height; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+            
+            // Large shape in center
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const shapeSize = 400;
+            
+            ctx.fillStyle = 'rgba(18, 18, 26, 0.8)';
+            ctx.strokeStyle = borderColor;
+            ctx.lineWidth = 4;
+            
+            ctx.beginPath();
+            
+            if (borderShape === 'circle') {
+                ctx.arc(centerX, centerY, shapeSize / 2, 0, Math.PI * 2);
+            } else if (borderShape === 'rounded') {
+                const radius = shapeSize / 6;
+                const x = centerX - shapeSize / 2;
+                const y = centerY - shapeSize / 2;
+                ctx.moveTo(x + radius, y);
+                ctx.lineTo(x + shapeSize - radius, y);
+                ctx.quadraticCurveTo(x + shapeSize, y, x + shapeSize, y + radius);
+                ctx.lineTo(x + shapeSize, y + shapeSize - radius);
+                ctx.quadraticCurveTo(x + shapeSize, y + shapeSize, x + shapeSize - radius, y + shapeSize);
+                ctx.lineTo(x + radius, y + shapeSize);
+                ctx.quadraticCurveTo(x, y + shapeSize, x, y + shapeSize - radius);
+                ctx.lineTo(x, y + radius);
+                ctx.quadraticCurveTo(x, y, x + radius, y);
+            } else if (borderShape === 'square') {
+                const half = shapeSize / 2;
+                ctx.rect(centerX - half, centerY - half, shapeSize, shapeSize);
+            } else if (borderShape === 'hexagon') {
+                const r = shapeSize / 2;
+                for (let i = 0; i < 6; i++) {
+                    const angle = (Math.PI / 3) * i - Math.PI / 6;
+                    const x = centerX + r * Math.cos(angle);
+                    const y = centerY + r * Math.sin(angle);
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.closePath();
+            } else { // polygon (default geometric cuts)
+                const cutSize = 50;
+                ctx.moveTo(centerX - shapeSize/2 + cutSize, centerY - shapeSize/2);
+                ctx.lineTo(centerX + shapeSize/2 - cutSize, centerY - shapeSize/2);
+                ctx.lineTo(centerX + shapeSize/2, centerY - shapeSize/2 + cutSize);
+                ctx.lineTo(centerX + shapeSize/2, centerY + shapeSize/2 - cutSize);
+                ctx.lineTo(centerX + shapeSize/2 - cutSize, centerY + shapeSize/2);
+                ctx.lineTo(centerX - shapeSize/2 + cutSize, centerY + shapeSize/2);
+                ctx.lineTo(centerX - shapeSize/2, centerY + shapeSize/2 - cutSize);
+                ctx.lineTo(centerX - shapeSize/2, centerY - shapeSize/2 + cutSize);
+                ctx.closePath();
+            }
+            
+            ctx.fill();
+            ctx.stroke();
+            
+            // Icon content in center
+            if (iconType === 'image') {
+                if (uploadedImage) {
+                    // Draw uploaded image with proper aspect ratio
+                    const maxSize = 280;
+                    const aspectRatio = uploadedImage.width / uploadedImage.height;
+                    let drawWidth = maxSize;
+                    let drawHeight = maxSize;
+                    
+                    if (aspectRatio > 1) {
+                        drawHeight = maxSize / aspectRatio;
+                    } else {
+                        drawWidth = maxSize * aspectRatio;
+                    }
+                    
+                    const drawX = centerX - drawWidth / 2;
+                    const drawY = centerY - drawHeight / 2 - 40;
+                    ctx.drawImage(uploadedImage, drawX, drawY, drawWidth, drawHeight);
+                } else {
+                    // Show placeholder
+                    const fontFamily = document.getElementById('fontFamily').value;
+                    ctx.fillStyle = '#666';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.font = getFontString(48, null, fontFamily);
+                    ctx.fillText('Upload Image Below', centerX, centerY - 40);
+                }
+            } else if (iconType === 'emoji') {
+                if (emojiValue) {
+                    ctx.font = '200px Arial';
+                    ctx.fillStyle = '#ffffff';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(emojiValue, centerX, centerY - 40);
+                } else {
+                    const fontFamily = document.getElementById('fontFamily').value;
+                    ctx.fillStyle = '#666';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.font = getFontString(48, null, fontFamily);
+                    ctx.fillText('Select Emoji Below', centerX, centerY - 40);
+                }
+            } else {
+                if (textValue) {
+                    const fontFamily = document.getElementById('fontFamily').value;
+                    ctx.fillStyle = textColor;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.font = getFontString(180, 'bold', fontFamily);
+                    ctx.fillText(textValue, centerX, centerY - 40);
+                } else {
+                    const fontFamily = document.getElementById('fontFamily').value;
+                    ctx.fillStyle = '#666';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.font = getFontString(48, null, fontFamily);
+                    ctx.fillText('Enter Text Below', centerX, centerY - 40);
+                }
+            }
+            
+            // Name below
+            const thumbnailName = document.getElementById('thumbnailName').value;
+            if (thumbnailName) {
+                const fontFamily = document.getElementById('fontFamily').value;
+                const thumbnailTitleColor = document.getElementById('thumbnailTitleColor').value;
+                ctx.font = getFontString(60, 'bold', fontFamily);
+                ctx.fillStyle = thumbnailTitleColor;
+                ctx.fillText(thumbnailName, centerX, centerY + 120);
+            }
+            
+            // Subtitle (optional)
+            const thumbnailSubtitle = document.getElementById('thumbnailSubtitle').value;
+            if (thumbnailSubtitle) {
+                const fontFamily = document.getElementById('fontFamily').value;
+                const thumbnailSubtitleColor = document.getElementById('thumbnailSubtitleColor').value;
+                ctx.fillStyle = thumbnailSubtitleColor;
+                ctx.font = getFontString(36, null, fontFamily);
+                ctx.fillText(thumbnailSubtitle, centerX, centerY + 180);
+            }
+        }
+        
+        function drawAll() {
+            drawFavicon('favicon16', 16);
+            drawFavicon('favicon32', 32);
+            drawFavicon('appleTouchIcon', 180);
+            drawThumbnail();
+        }
+        
+        function updatePreviews() {
+            drawAll();
+        }
+        
+        function downloadImage(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        function downloadAll() {
+            // Download all images with a small delay between each
+            downloadImage('favicon16', 'favicon-16x16.png');
+            setTimeout(() => downloadImage('favicon32', 'favicon-32x32.png'), 100);
+            setTimeout(() => downloadImage('appleTouchIcon', 'apple-touch-icon.png'), 200);
+            setTimeout(() => downloadImage('thumbnail', 'thumbnail.png'), 300);
+        }
+        
+        // Event listeners
+        document.getElementById('text').addEventListener('input', drawAll);
+        document.getElementById('emoji').addEventListener('input', drawAll);
+        document.getElementById('bgColor').addEventListener('input', drawAll);
+        document.getElementById('textColor').addEventListener('input', drawAll);
+        document.getElementById('borderColor').addEventListener('input', drawAll);
+        document.getElementById('thumbnailName').addEventListener('input', drawAll);
+        document.getElementById('thumbnailSubtitle').addEventListener('input', drawAll);
+        
+        // Initial draw
+        drawAll();
+    </script>
+</body>
+</html>

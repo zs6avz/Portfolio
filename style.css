@@ -1450,10 +1450,11 @@ body::before {
 
 .back-link::before {
     content: '<';
-    font-weight: bold;
+    display: inline-block;
     text-shadow: 0 0 10px var(--primary-color);
+    font-weight: bold;
+    transition: var(--transition);
 }
-
 .back-link:hover {
     text-shadow: 0 0 15px var(--primary-color);
     transform: translateX(-5px);
